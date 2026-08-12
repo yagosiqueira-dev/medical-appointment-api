@@ -18,3 +18,8 @@ spring:
 
 server:
   port: 8080
+
+# Colocamos o JWT na raiz do documento
+jwt:
+  secret: minha-chave-secreta-super-segura-para-o-projeto-medical-appointment-api-2026
+  expiration: 86400000
