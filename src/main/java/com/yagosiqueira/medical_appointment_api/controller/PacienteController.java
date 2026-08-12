@@ -6,6 +6,7 @@ import com.yagosiqueira.medical_appointment_api.service.PacienteService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class PacienteController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('PACIENTE') or hasRole('ADMIN')")
     public ResponseEntity<PacienteResponseDTO> criar(@Valid @RequestBody PacienteRequestDTO dto) {
         PacienteResponseDTO pacienteCriado = pacienteService.criar(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(pacienteCriado);
