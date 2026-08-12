@@ -9,8 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-@RestController
+import org.springframework.security.access.prepost.PreAuthorize;@RestController
 @RequestMapping("/api/medicos")
 public class MedicoController {
 
@@ -21,6 +20,7 @@ public class MedicoController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<MedicoResponseDTO> criar(@Valid @RequestBody MedicoRequestDTO dto) {
         MedicoResponseDTO medicoCriado = medicoService.criar(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(medicoCriado);
