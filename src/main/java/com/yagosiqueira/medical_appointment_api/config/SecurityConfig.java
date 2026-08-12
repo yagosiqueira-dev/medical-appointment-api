@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -16,7 +17,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
-@EnableWebSecurity // Habilita a personalização do Spring Security
+@EnableWebSecurity
+@EnableMethodSecurity(securedEnabled = true) // Habilita o uso de @PreAuthorize
 public class SecurityConfig {
 
     @Autowired
@@ -25,26 +27,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                .csrf(csrf -> csrf.disable()) // Desabilita proteção CSRF (necessário para APIs Stateless)
-
-                // 1. Torna a API Stateless (sem guardar sessão)
+                .csrf(csrf -> csrf.disable())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-
-                // 2. Configura as regras de acesso das rotas
                 .authorizeHttpRequests(req -> {
-                    // Libera apenas requisições POST para a rota /login
                     req.requestMatchers(HttpMethod.POST, "/login").permitAll();
-
-                    // Bloqueia qualquer outra requisição que não tenha um Token válido
                     req.anyRequest().authenticated();
                 })
-
-                // 3. Diz ao Spring: "Use o MEU filtro antes do seu filtro padrão"
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 
-    // Exporta o motor de autenticação do Spring para usarmos no nosso Controller
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();
