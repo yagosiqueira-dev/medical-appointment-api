@@ -24,7 +24,7 @@ public class AutenticacaoController {
     private TokenService tokenService;
 
     @PostMapping
-    public ResponseEntity efetuarLogin(@RequestBody DadosAutenticacao dados) {
+    public ResponseEntity<DadosTokenJWT> efetuarLogin(@RequestBody DadosAutenticacao dados) {
 
         // 1. Converte o DTO em um token de autenticação que o Spring entende
         var authenticationToken = new UsernamePasswordAuthenticationToken(dados.email(), dados.senha());
