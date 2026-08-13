@@ -126,28 +126,6 @@ Testes unitários com JUnit 5 e Mockito cobrindo as regras de negócio mais impo
   ✔ deveLancarExcecaoQuandoDataNoPassado
 ```
 
-## 📸 Demonstração
-
-<!-- Substitua os caminhos abaixo pelos prints salvos em uma pasta /docs/images no seu repositório -->
-
-**Visão geral da API no Swagger UI**
-![Swagger UI](docs/images/swagger-overview.png)
-
-**Cadastro de usuário — senha nunca é exposta na resposta**
-![Cadastro de usuário](docs/images/criar-usuario.png)
-
-**Agendamento de consulta com sucesso**
-![Agendar consulta](docs/images/agendar-consulta.png)
-
-**Autorização por perfil bloqueando ação não permitida (403)**
-![Autorização por perfil](docs/images/autorizacao-403.png)
-
-**Testes automatizados passando**
-![Testes passando](docs/images/testes-passando.png)
-
-**Dados persistidos no banco (MySQL via DBeaver)**
-![Dados no banco](docs/images/dbeaver-consultas.png)
-
 ## ▶️ Como executar o projeto
 
 ### Pré-requisitos
