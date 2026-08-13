@@ -13,20 +13,20 @@ Esse é meu segundo projeto backend, construído do zero com foco em entender **
 ## 🚀 Funcionalidades
 
 - **Autenticação e autorização**
-    - Cadastro de usuários com senha criptografada (BCrypt)
-    - Login com geração de token JWT
-    - Autorização por perfil (`ADMIN`, `MEDICO`, `PACIENTE`) em nível de endpoint
-    - Prevenção de escalonamento de privilégio (apenas um ADMIN pode criar outro ADMIN)
+  - Cadastro de usuários com senha criptografada (BCrypt)
+  - Login com geração de token JWT
+  - Autorização por perfil (`ADMIN`, `MEDICO`, `PACIENTE`) em nível de endpoint
+  - Prevenção de escalonamento de privilégio (apenas um ADMIN pode criar outro ADMIN)
 
 - **Gestão de Pacientes e Médicos**
-    - CRUD completo, com validação de dados (CPF, CRM únicos, formato de e-mail, etc.)
-    - Vínculo de Médicos a múltiplas Especialidades
+  - CRUD completo, com validação de dados (CPF, CRM únicos, formato de e-mail, etc.)
+  - Vínculo de Médicos a múltiplas Especialidades
 
 - **Agendamento de Consultas**
-    - Impede agendar duas consultas no mesmo horário para o mesmo médico
-    - Impede agendamento em datas/horários no passado
-    - Cancelamento de consulta (com preservação de histórico — sem exclusão física)
-    - Listagem de consultas por paciente e por médico
+  - Impede agendar duas consultas no mesmo horário para o mesmo médico
+  - Impede agendamento em datas/horários no passado
+  - Cancelamento de consulta (com preservação de histórico — sem exclusão física)
+  - Listagem de consultas por paciente e por médico
 
 - **Documentação interativa** via Swagger/OpenAPI, com suporte a autenticação Bearer direto na interface
 
@@ -182,7 +182,6 @@ http://localhost:8080/swagger-ui/index.html
 ## 👤 Autor
 
 **Yago Machado Siqueira**
-
 Estudante de Análise e Desenvolvimento de Sistemas
 
-[LinkedIn](#) · [GitHub](https://github.com/yagosiqueira-dev)
+[LinkedIn](https://www.linkedin.com/in/yago-machado-siqueira) · [GitHub](https://github.com/yagosiqueira-dev)
