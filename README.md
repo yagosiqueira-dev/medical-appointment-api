@@ -204,6 +204,7 @@ http://localhost:8080/swagger-ui/index.html
 ## 👤 Autor
 
 **Yago Machado Siqueira**
+
 Estudante de Análise e Desenvolvimento de Sistemas
 
 [LinkedIn](#) · [GitHub](https://github.com/yagosiqueira-dev)
